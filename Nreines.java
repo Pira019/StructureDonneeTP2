@@ -3,10 +3,18 @@ public class Nreines {
 
 	public static void main(String[] args) {
 
-		Echiquier echiquier = new Echiquier(4);
+		int tailleEchiquier = 4;
+		Echiquier echiquier = new Echiquier(tailleEchiquier);
 
-		ResoudreNReine(echiquier, 0);
-		echiquier.printEchiquier();
+		// Vérification des cas où il n'y a pas de solution ou de cas trivials
+		if (tailleEchiquier == 0) {
+			System.out.println("Aucune reine à placer sur un échiquier de taille 0.");
+		} else if (ResoudreNReine(echiquier, 0)) {
+			echiquier.printEchiquier();
+		} else {
+			//exemple 2 ou 3
+			System.out.println("Aucune solution n'existe pour " + tailleEchiquier + " reines.");
+		}
 
 	}
 

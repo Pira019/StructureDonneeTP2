@@ -1,5 +1,13 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 public class Echiquier {
 
 		private static  int taille;
@@ -16,41 +24,41 @@ public class Echiquier {
 					tableau[i][j]=false;
 		}
 		
-		//En principe, comme les reines sont ajoutées une a une, il n'est pas nécéssaire de vérifier tous le  tableau, mais il n'est pas faux de le faire. 
+		//En principe, comme les reines sont ajoutï¿½es une a une, il n'est pas nï¿½cï¿½ssaire de vï¿½rifier tous le  tableau, mais il n'est pas faux de le faire. 
 		boolean EstPositionValide(int ligne, int colonne)
 		{
 			
-			//vérifier la ligne
+			//vï¿½rifier la ligne
 			for(int i=0;i<taille;i++)
 			{
 				if(tableau[ligne][i]==true)
 					return false;
 			}
 			
-			//vérifier la colonne
+			//vï¿½rifier la colonne
 			for(int i=0;i<taille;i++)
 			{
 				if(tableau[i][colonne]==true)
 					return false;
 			}
 			
-			//vérifier la diagonale  gauche croissante
+			//vï¿½rifier la diagonale  gauche croissante
 	        for (int i = ligne,  j = colonne; i >= 0 && j >= 0; i--, j--)
 	            if (tableau[i][j] == true)
 	                return false;
 	        
-			//vérifier la diagonale  gauche décroissante
+			//vï¿½rifier la diagonale  gauche dï¿½croissante
 	        for (int i = ligne,  j = colonne; i < taille && j < taille; i++, j++)
 	            if (tableau[i][j] == true)
 	                return false;
 	        
-			//vérifier la diagonale  gauche croissante
+			//vï¿½rifier la diagonale  droite croissante
 	        for (int i = ligne,  j = colonne; i >= 0 && j < taille; i--, j++)
 	            if (tableau[i][j] == true)
 	                return false;
 	        
-			//vérifier la diagonale  gauche décroissante
-	        for (int i = ligne,  j = colonne; i < 0 && j < taille; i--, j++)
+			//vï¿½rifier la diagonale  droite dï¿½croissante
+		for (int i = ligne,  j = colonne; i < taille &&  j >= 0; i++, j--)
 	            if (tableau[i][j] == true)
 	                return false;
 			
@@ -75,7 +83,7 @@ public class Echiquier {
 		}
 		
 	   
-	void printEchiquierTexte()// Pour afficher l'échiquier en version texte
+	void printEchiquierTexte()// Pour afficher l'ï¿½chiquier en version texte
 		{
 			for (int i=0;i<taille;i++)
 			{
@@ -91,7 +99,7 @@ public class Echiquier {
 		}
 
 
-        void printEchiquier()//Pour afficher l'échiquier en version GUI.
+        void printEchiquier()//Pour afficher l'ï¿½chiquier en version GUI.
         {
             new ChessGUI(tableau);
         }
@@ -104,7 +112,7 @@ public class Echiquier {
                 this.tableau = tableau;
                 this.taille = tableau.length;
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                setTitle("Échiquier");
+                setTitle("ï¿½chiquier");
                 setSize(800, 800);
                 setLocationRelativeTo(null);
                 setLayout(new GridLayout(taille, taille));
